@@ -1,0 +1,41 @@
+{
+  "JoeSchmo": {
+    "scores": {
+      "exams": [
+        87
+      ],
+      "labs": [
+        85,
+        42,
+        76,
+        84
+      ],
+      "quizzes": [
+        68,
+        61,
+        59,
+        74
+      ],
+      "projects": [
+        85,
+        97
+      ]
+    },
+    "calculator": [
+      "TI Nspire"
+    ],
+    "birthday": [
+      "December 31, 1999"
+    ],
+    "prev_programming_experience": [
+      "Some"
+    ],
+    "other_languages": [
+      "Python",
+      "C++"
+    ],
+    "operating_system": [
+      "Mac OS Mojave 10.14.6"
+    ]
+  }
+}

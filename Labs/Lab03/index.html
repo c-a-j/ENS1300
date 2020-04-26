@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Subfunctions, Data Types, Data Import/Export, Debugging | ENS 1300</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/ENS1300/assets/css/0.styles.308daac7.css" as="style"><link rel="preload" href="/ENS1300/assets/js/app.fdcdabdd.js" as="script"><link rel="preload" href="/ENS1300/assets/js/2.d65932ad.js" as="script"><link rel="preload" href="/ENS1300/assets/js/10.95f70e5f.js" as="script"><link rel="prefetch" href="/ENS1300/assets/js/11.7b268c81.js"><link rel="prefetch" href="/ENS1300/assets/js/12.34029c81.js"><link rel="prefetch" href="/ENS1300/assets/js/13.2027b02e.js"><link rel="prefetch" href="/ENS1300/assets/js/14.e4a82f22.js"><link rel="prefetch" href="/ENS1300/assets/js/15.8cca2def.js"><link rel="prefetch" href="/ENS1300/assets/js/16.68309fce.js"><link rel="prefetch" href="/ENS1300/assets/js/17.9cb41ed9.js"><link rel="prefetch" href="/ENS1300/assets/js/18.ab656fab.js"><link rel="prefetch" href="/ENS1300/assets/js/19.7556d238.js"><link rel="prefetch" href="/ENS1300/assets/js/20.258d1ce9.js"><link rel="prefetch" href="/ENS1300/assets/js/21.e345e015.js"><link rel="prefetch" href="/ENS1300/assets/js/3.a2e67bbb.js"><link rel="prefetch" href="/ENS1300/assets/js/4.efbb7039.js"><link rel="prefetch" href="/ENS1300/assets/js/5.5df7d3f1.js"><link rel="prefetch" href="/ENS1300/assets/js/6.6ceac0db.js"><link rel="prefetch" href="/ENS1300/assets/js/7.fac99f8b.js"><link rel="prefetch" href="/ENS1300/assets/js/8.517267ae.js"><link rel="prefetch" href="/ENS1300/assets/js/9.6c45ec7d.js">
+    <link rel="stylesheet" href="/ENS1300/assets/css/0.styles.308daac7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ENS1300/" class="home-link router-link-active"><!----> <span class="site-name">ENS 1300</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ENS1300/" class="nav-link">Home</a></div><div class="nav-item"><a href="https://www.pstcc.edu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PSTCC
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://mathworks.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MathWorks
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Google
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ENS1300/" class="nav-link">Home</a></div><div class="nav-item"><a href="https://www.pstcc.edu" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PSTCC
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://mathworks.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MathWorks
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Google
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/ENS1300/" class="sidebar-link">Announcments</a></li><li><a href="/ENS1300/Instructor/" class="sidebar-link">Instructor</a></li><li><a href="/ENS1300/Schedule/" class="sidebar-link">Schedule</a></li><li><a href="/ENS1300/Resources/" class="sidebar-link">Resources</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Labs</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ENS1300/Labs/Lab01/" class="sidebar-link">Lab 1 - Intro to ENS 1300</a></li><li><a href="/ENS1300/Labs/Lab02/" class="sidebar-link">Lab 2 - Functions and Plotting</a></li><li><a href="/ENS1300/Labs/Lab03/" class="active sidebar-link">Lab 3 - Subfunctions, Data Types, Data Import/Export</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#ef-230-links" class="sidebar-link">EF 230 Links</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#subfunctions" class="sidebar-link">Subfunctions</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#data-types" class="sidebar-link">Data Types</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#data-import-export" class="sidebar-link">Data Import/Export</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#import-export-csv-format" class="sidebar-link">Import/Export CSV format</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#import-export-json-format" class="sidebar-link">Import/Export JSON format</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#import-export-matlab-workspace-mat" class="sidebar-link">Import/Export MATLAB Workspace (.mat)</a></li><li class="sidebar-sub-header"><a href="/ENS1300/Labs/Lab03/#other-examples" class="sidebar-link">Other Examples</a></li></ul></li><li><a href="/ENS1300/Labs/Lab04/" class="sidebar-link">Lab 4 - Logical Operators, Conditionals, Input Validiation</a></li><li><a href="/ENS1300/Labs/Lab05/" class="sidebar-link">Lab 5 - For Loops, While Loops</a></li><li><a href="/ENS1300/Labs/Lab06/" class="sidebar-link">Lab 6 - Polynomials, Curve Fitting</a></li><li><a href="/ENS1300/Labs/Lab07/" class="sidebar-link">Lab 7 - Numerical Integration and Differentiation</a></li><li><a href="/ENS1300/Labs/Lab08/" class="sidebar-link">Lab 8 - Matrix Algebra</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="lab-3-subfunctions-data-types-data-import-export">Lab 3: Subfunctions, Data Types, Data Import/Export<a href="#lab-3-subfunctions-data-types-data-import-export" class="header-anchor"></a></h1> <h4 id="files-for-this-lab">Files for this lab:<a href="#files-for-this-lab" class="header-anchor"></a></h4> <table><thead><tr><th style="text-align:left;">File</th> <th style="text-align:left;">Description</th></tr></thead> <tbody><tr><td style="text-align:left;"><a href="/ENS1300/lab03.pdf">lab03.pdf</a></td> <td style="text-align:left;">Lab Assignment 3</td></tr> <tr><td style="text-align:left;"><a href="/ENS1300/grades.json">grades.json</a></td> <td style="text-align:left;">Grades JSON File</td></tr> <tr><td style="text-align:left;"><a href="/ENS1300/cartesianCoordinates.csv">cartesianCoordinates.csv</a></td> <td style="text-align:left;">Cartesian Coordinate CSV File</td></tr></tbody></table> <h2 id="ef-230-links">EF 230 Links<a href="#ef-230-links" class="header-anchor"></a></h2> <ul><li>EF 230 Web Material
+<ul><li><a href="https://ef.engr.utk.edu/ef230-2018-08/modules/matlab-subfunctions/" target="_blank" rel="noopener noreferrer">Subfunctions and Anonymous Functions<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://ef.engr.utk.edu/ef230-2018-08/modules/matlab-control/" target="_blank" rel="noopener noreferrer">Data Types<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://ef.engr.utk.edu/ef230-2018-08/modules/matlab-import-export/" target="_blank" rel="noopener noreferrer">Data Import/Export<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li> <li>EF 230 Videos
+<ul><li><a href="https://ef.engr.utk.edu/ef230-2018-08/vid/showvideo.php?vid=%2Fmodules%2Fmatlab-control%2Fvid%2Fdatatypes&amp;size=640" target="_blank" rel="noopener noreferrer">Data Types<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://ef.engr.utk.edu/ef230-2018-08/vid/showvideo.php?vid=%2Fmodules%2Fmatlab-control%2Fvid%2Fstructures&amp;size=640" target="_blank" rel="noopener noreferrer">Structures<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://ef.engr.utk.edu/ef230-2018-08/vid/showvideo.php?vid=%2Fmodules%2Fmatlab-control%2Fvid%2Fcell-arrays&amp;size=640" target="_blank" rel="noopener noreferrer">Cell Arrays<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://ef.engr.utk.edu/ef230-2018-08/vid/showvideo.php?vid=%2Fmodules%2Fmatlab-import-export%2Fvid%2Fimport-data-overview&amp;size=640" target="_blank" rel="noopener noreferrer">Import Overview<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul> <h2 id="subfunctions">Subfunctions<a href="#subfunctions" class="header-anchor"></a></h2> <p>Last week we wrote function files that included only a single function. As
+functions become increasingly encumbered with loops, conditionals, print
+statements, plotting, and complicated computations, it can be beneficial in
+several ways to divide the main function into subfunctions. In computer science
+this process is called
+<a href="https://en.wikipedia.org/wiki/Abstraction_(computer_science)" target="_blank" rel="noopener noreferrer">abstraction<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, and
+it basically means to hide fine details from view in order to focus on larger ideas.
+Below is a subfunction template for ENS 1300:
+</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code><span class="token comment">% Purpose: mainFunc() is a template for ENS1300</span>
+<span class="token comment">% Inputs: input - input is just a placeholder</span>
+<span class="token comment">% Output: output - output is just a placeholder</span>
+<span class="token comment">% Usage: functionTemp()</span>
+<span class="token comment">% Subfunctions: </span>
+    <span class="token comment">% subFunc1: it says hello </span>
+    <span class="token comment">% subFunc2: it says hello</span>
+<span class="token comment">% Notes: ...</span>
+<span class="token keyword">function</span> mainOutput <span class="token operator">=</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span>mainInput<span class="token punctuation">)</span>
+    <span class="token function">subFunc1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">subFunc2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> output <span class="token operator">=</span> <span class="token function">subFunc1</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+<span class="token comment">% Inputs: input - input is just a placeholder</span>
+<span class="token comment">% Output: output - output is just a placeholder</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'subFunc1: Hello, I''m the first subfunction!\n'</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> output <span class="token operator">=</span> <span class="token function">subFunc2</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+<span class="token comment">% Inputs: input - input is just a placeholder</span>
+<span class="token comment">% Output: output - output is just a placeholder</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'subFunc2: Hello, I''m the second subfunction!\n'</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre></div><p>Note that the input and output definitions are only placeholders. Because no
+inputs are ever used in the template subfunctions, the following code will
+behave in the exact same way.</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code><span class="token keyword">function</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">subFunc1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">subFunc2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> <span class="token function">subFunc1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'subFunc1: Hello, I''m the first subfunction!\n'</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> <span class="token function">subFunc2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'subFunc2: Hello, I''m the second subfunction!\n'</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre></div><p>Important things to consider when using subfunctions:</p> <ul><li>Everything in the file must be a function.</li> <li>The first function is the 'main' or 'primary' function and is the one that is
+called when the file is run.</li> <li>None of the other functions (subfunctions) can be referenced from outside the
+file.</li> <li>Each subfunction begins with its own function definition line. The functions
+immediately follow each other. The various subfunctions can occur in any
+order, as long as the primary function appears first.</li> <li>Each function must be terminated by an end statement.</li></ul> <p>There are many ways to organize code by using subfunctions. In this course, we
+will primarily use main functions to call subfunctions only. In other words, the
+main function will show the big idea and the subfunctions will contain the
+details. Through appropriate function naming, the programmers intent can be made
+clear just by reading the main function. For example:</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code><span class="token keyword">function</span> <span class="token function">myMainFunc</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span>
+    data <span class="token operator">=</span> <span class="token function">readInput</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    results <span class="token operator">=</span> <span class="token function">performCalculations</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">generatePlots</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">writeOutputFile</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> importedData <span class="token operator">=</span> <span class="token function">readInput</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+    <span class="token comment">% Code that imports data from some file or web source</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> calcResults <span class="token operator">=</span> <span class="token function">performCalculations</span><span class="token punctuation">(</span>someData<span class="token punctuation">)</span>
+    <span class="token comment">% Code that performs some calculation on the imported data</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> <span class="token function">generatePlots</span><span class="token punctuation">(</span>plotData<span class="token punctuation">)</span>
+    <span class="token comment">% Code that creates plots using the calculation results</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> <span class="token function">writeOutputFile</span><span class="token punctuation">(</span>resultData<span class="token punctuation">)</span>
+    <span class="token comment">% Code that writes result output file</span>
+<span class="token keyword">end</span>
+</code></pre></div><h2 id="data-types">Data Types<a href="#data-types" class="header-anchor"></a></h2> <p>MATLAB supports <a href="https://www.mathworks.com/help/matlab/data-types.html" target="_blank" rel="noopener noreferrer">many different data
+types<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>. The type, or
+class, of a variable designates what data it can store, how much memory it
+will require, and what operations can be performed on it. Some of the
+most common MATLAB data types are listed below in bold font.</p> <ul><li>Numerical
+<ul><li>Floating Point
+<ul><li><strong>single</strong> - uses 32 bits of memory</li> <li><strong>double</strong> - uses 64 bits of memory (default)</li></ul></li> <li>Integers
+<ul><li><strong>uint8</strong>, <strong>int8</strong> - unsigned and signed 8 bit integers</li> <li><strong>uint16</strong>, <strong>int16</strong> - unsigned and signed 16 bit integers</li> <li><strong>uint32</strong>, <strong>int32</strong> - unsigned and signed 32 bit integers</li> <li><strong>uint64</strong>, <strong>int64</strong> - unsigned and signed 64 bit integers</li></ul></li></ul></li> <li>Characters and Strings
+<ul><li><strong>char</strong> - character arrays (single quotes)</li> <li><strong>string</strong> - strings and string arrays (double quotes)</li></ul></li> <li>Containers
+<ul><li><strong>struct</strong> - structure</li> <li><strong>cell</strong> - cell arrays</li></ul></li> <li>Function Handles
+<ul><li><strong>function_handle</strong> - anonymous functions and function references</li></ul></li> <li>Boolean
+<ul><li><strong>logical</strong> - (1=true, 0=false)</li></ul></li></ul> <h2 id="data-import-export">Data Import/Export<a href="#data-import-export" class="header-anchor"></a></h2> <p>There are several different built-in methods in MATLAB for the import/export of
+data and many more supported file format types. For now, we'll only look at 3
+import/export format types.</p> <ol><li>Comma Separated Value (.csv)</li> <li>JavaScript Object Notation (.json)</li> <li>MATLAB workspace file (.mat)</li></ol> <br> <p>Functions for downloading files from URL:</p> <ul><li><a href="https://www.mathworks.com/help/matlab/ref/websave.html" target="_blank" rel="noopener noreferrer">websave<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> (MATLAB only)</li> <li><a href="https://www.mathworks.com/help/matlab/ref/websave.html" target="_blank" rel="noopener noreferrer">urlwrite<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> (MATLAB and Octave)</li></ul> <h2 id="import-export-csv-format">Import/Export CSV format<a href="#import-export-csv-format" class="header-anchor"></a></h2> <p>The comma separated value format is of widespread use for scientific
+applications. It is especially suited for recording and/or moving tabular
+data. The following is an example of a plain text CSV file.</p> <div class="language- extra-class"><pre class="language-text"><code>Header 1,Header 2,Header 3,Header 4,Header 5
+1,4,7,10,13
+3,5,8,11,14
+3,6,9,12,15
+</code></pre></div><p>And it would look like this if opened with spreadsheet software.</p> <table><thead><tr><th style="text-align:center;">Header 1</th> <th style="text-align:center;">Header 2</th> <th style="text-align:center;">Header 3</th> <th style="text-align:center;">Header 4</th> <th style="text-align:center;">Header 5</th></tr></thead> <tbody><tr><td style="text-align:center;">1</td> <td style="text-align:center;">4</td> <td style="text-align:center;">7</td> <td style="text-align:center;">10</td> <td style="text-align:center;">13</td></tr> <tr><td style="text-align:center;">3</td> <td style="text-align:center;">5</td> <td style="text-align:center;">8</td> <td style="text-align:center;">11</td> <td style="text-align:center;">14</td></tr> <tr><td style="text-align:center;">3</td> <td style="text-align:center;">6</td> <td style="text-align:center;">9</td> <td style="text-align:center;">12</td> <td style="text-align:center;">15</td></tr></tbody></table> <p>Functions to import data from <strong>local</strong> CSV files.</p> <ul><li><a href="https://www.mathworks.com/help/matlab/ref/dlmread.html" target="_blank" rel="noopener noreferrer">dlmread<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.mathworks.com/help/matlab/ref/dlmread.html" target="_blank" rel="noopener noreferrer">csvread<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.mathworks.com/help/matlab/ref/importdata.html" target="_blank" rel="noopener noreferrer">importdata<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <p>Functions to export in CSV format.</p> <ul><li><a href="https://www.mathworks.com/help/matlab/ref/dlmwrite.html" target="_blank" rel="noopener noreferrer">dlmwrite<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.mathworks.com/help/matlab/ref/csvwrite.html" target="_blank" rel="noopener noreferrer">csvwrite<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <div class="custom-block tip"><p class="custom-block-title">Example: Import CSV data using websave() and dlmread()</p> <p>Import data from a CSV file, <code>CSVexample.csv</code>, located at the following URL:
+<code>https://c-a-j.github.io/ENS1300/CSVexample.csv</code></p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/CSVexample.csv'</span><span class="token punctuation">;</span> 
+fn <span class="token operator">=</span> <span class="token string">'example.csv'</span><span class="token punctuation">;</span> <span class="token comment">% filename for local csv file</span>
+<span class="token function">websave</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% save the file</span>
+data <span class="token operator">=</span> <span class="token function">dlmread</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% read the data to a matrix</span>
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">Example: import CSV data using websave() and csvread()</p> <p><code>csvread()</code> is almost the same as <code>dlmread()</code>, but you don't
+have to specify the delimiter.</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/CSVexample.csv'</span><span class="token punctuation">;</span> 
+fn <span class="token operator">=</span> <span class="token string">'example.csv'</span><span class="token punctuation">;</span> <span class="token comment">% filename for local csv file</span>
+<span class="token function">websave</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% save the file</span>
+data <span class="token operator">=</span> <span class="token function">csvread</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% read the data to a matrix</span>
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">Example: Import CSV data using websave() and importdata()</p> <p><code>importdata()</code> will attempt to split the table into its text and numerical parts
+into a structure. For tables with complicated headers, specific options may need
+to be specified.</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/CSVexample.csv'</span><span class="token punctuation">;</span> 
+fn <span class="token operator">=</span> <span class="token string">'example.csv'</span><span class="token punctuation">;</span> <span class="token comment">% filename for local csv file</span>
+<span class="token function">websave</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% save the file</span>
+data <span class="token operator">=</span> <span class="token function">importdata</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% read the data to a structure</span>
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">Example: Importing data with variable column length</p> <p><code>csvread()</code> and <code>dlmread()</code> replaces missing data points with zeros and
+<code>importdata()</code> replaces them with NaN.  Consider the following CSV file in text
+and table format below.</p> <div class="language- extra-class"><pre class="language-text"><code>Header 1,Header 2,Header 3,Header 4,Header 5
+1,,1,1,1
+2,,2,2,2
+3,,3,3,3
+4,4,4,4,4
+5,5,5,,5
+,6,6,,6
+,7,7,,7
+,8,8,8,8
+,9,9,9,
+,10,10,10,
+</code></pre></div><table><thead><tr><th style="text-align:center;">Header 1</th> <th style="text-align:center;">Header 2</th> <th style="text-align:center;">Header 3</th> <th style="text-align:center;">Header 4</th> <th style="text-align:center;">Header 5</th></tr></thead> <tbody><tr><td style="text-align:center;">1</td> <td style="text-align:center;"></td> <td style="text-align:center;">1</td> <td style="text-align:center;">1</td> <td style="text-align:center;">1</td></tr> <tr><td style="text-align:center;">2</td> <td style="text-align:center;"></td> <td style="text-align:center;">2</td> <td style="text-align:center;">2</td> <td style="text-align:center;">2</td></tr> <tr><td style="text-align:center;">3</td> <td style="text-align:center;"></td> <td style="text-align:center;">3</td> <td style="text-align:center;">3</td> <td style="text-align:center;">3</td></tr> <tr><td style="text-align:center;">4</td> <td style="text-align:center;">4</td> <td style="text-align:center;">4</td> <td style="text-align:center;">4</td> <td style="text-align:center;">4</td></tr> <tr><td style="text-align:center;">5</td> <td style="text-align:center;">5</td> <td style="text-align:center;">5</td> <td style="text-align:center;"></td> <td style="text-align:center;">5</td></tr> <tr><td style="text-align:center;"></td> <td style="text-align:center;">6</td> <td style="text-align:center;">6</td> <td style="text-align:center;"></td> <td style="text-align:center;">6</td></tr> <tr><td style="text-align:center;"></td> <td style="text-align:center;">7</td> <td style="text-align:center;">7</td> <td style="text-align:center;"></td> <td style="text-align:center;">7</td></tr> <tr><td style="text-align:center;"></td> <td style="text-align:center;">8</td> <td style="text-align:center;">8</td> <td style="text-align:center;">8</td> <td style="text-align:center;">8</td></tr> <tr><td style="text-align:center;"></td> <td style="text-align:center;">9</td> <td style="text-align:center;">9</td> <td style="text-align:center;">9</td> <td style="text-align:center;"></td></tr> <tr><td style="text-align:center;"></td> <td style="text-align:center;">10</td> <td style="text-align:center;">10</td> <td style="text-align:center;">10</td> <td style="text-align:center;"></td></tr></tbody></table> <p>Using <code>importdata()</code> would result in the following matrix:</p> <div class="language- extra-class"><pre class="language-text"><code>     1   NaN     1     1     1
+     2   NaN     2     2     2
+     3   NaN     3     3     3
+     4     4     4     4     4
+     5     5     5   NaN     5
+   NaN     6     6   NaN     6
+   NaN     7     7   NaN     7
+   NaN     8     8     8     8
+   NaN     9     9     9   NaN
+   NaN    10    10    10   NaN
+</code></pre></div><p>And using <code>dlmread()</code> or <code>csvread()</code> would result in this matrix:</p> <div class="language- extra-class"><pre class="language-text"><code>     1     0     1     1     1
+     2     0     2     2     2
+     3     0     3     3     3
+     4     4     4     4     4
+     5     5     5     0     5
+     0     6     6     0     6
+     0     7     7     0     7
+     0     8     8     8     8
+     0     9     9     9     0
+     0    10    10    10     0
+</code></pre></div><p>This could introduce ambiguity if there are any intentional zeros in the data
+set. For that reason, <code>importdata()</code> is probably better suited to our needs.</p></div> <div class="custom-block tip"><p class="custom-block-title">Example: Export matrix to CSV file using dlmwrite() and csvread()</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>M <span class="token operator">=</span> <span class="token function">randi</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% generate random matrix of integers</span>
+fn <span class="token operator">=</span> <span class="token string">'randomMatrix.csv'</span><span class="token punctuation">;</span> <span class="token comment">% csv filename</span>
+<span class="token function">dlmwrite</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> M<span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% write the matrix, M, to csv file</span>
+</code></pre></div><div class="language-MATLAB extra-class"><pre class="language-matlab"><code>M <span class="token operator">=</span> <span class="token function">randi</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% generate random matrix of integers</span>
+fn <span class="token operator">=</span> <span class="token string">'randomMatrix.csv'</span><span class="token punctuation">;</span> <span class="token comment">% csv filename</span>
+<span class="token function">csvwrite</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> M<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% write the matrix, M, to csv file</span>
+</code></pre></div></div> <h2 id="import-export-json-format">Import/Export JSON format<a href="#import-export-json-format" class="header-anchor"></a></h2> <p>JavaScript Object Notation <a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener noreferrer">JSON<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> is the most widely-used
+file format for <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="noopener noreferrer">REST
+APIs<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>. The
+details of REST APIs are a bit beyond the scope of this course, but you can
+think of them simply as a set of rules between web-based systems that allow them
+to share information. For now, we'll ignore REST APIs and focus on what the data
+might look like in MATLAB once a request has been made.</p> <p>The following block is an example of a JSON file that holds information about
+the student Joe Schmo:</p> <div class="language-JSON extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;JoeSchmo&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;scores&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;exams&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">87</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;labs&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">85</span><span class="token punctuation">,</span>
+        <span class="token number">42</span><span class="token punctuation">,</span>
+        <span class="token number">76</span><span class="token punctuation">,</span>
+        <span class="token number">84</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;quizzes&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">68</span><span class="token punctuation">,</span>
+        <span class="token number">61</span><span class="token punctuation">,</span>
+        <span class="token number">59</span><span class="token punctuation">,</span>
+        <span class="token number">74</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;projects&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">85</span><span class="token punctuation">,</span>
+        <span class="token number">97</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;calculator&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;TI Nspire&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;birthday&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;December 31, 1999&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;prev_programming_experience&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;Some&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;other_languages&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;Python&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;C++&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;operating_system&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;Mac OS Mojave 10.14.6&quot;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>Note the similarity to a file structure. If all Joe's values above were stored
+inside text files and all the other field names were directory names, it would
+look like this:</p> <div class="language- extra-class"><pre class="language-text"><code>JoeSchmo
+├── birthday.txt
+├── calculator.txt
+├── operating_system.txt
+├── other_languages.txt
+├── prev_programming_experience.txt
+└── scores
+    ├── exams.txt
+    ├── labs.txt
+    ├── projects.txt
+    └── quizzes.txt
+</code></pre></div><p>The JSON file containing Joe Schmo's information can be accessed at the
+following URL: <code>https://c-a-j.github.io/ENS1300/JSONexample.json</code>. The examples
+below show two different ways to import the data.</p> <div class="custom-block tip"><p class="custom-block-title">Example: Import from JSON</p> <p>Using <code>jsondecode()</code>:</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+fn <span class="token operator">=</span> <span class="token string">'example.json'</span><span class="token punctuation">;</span> <span class="token comment">% json filename</span>
+<span class="token function">websave</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% save the json file</span>
+file <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% open the json file</span>
+txt <span class="token operator">=</span> <span class="token function">fread</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% read in the json file</span>
+data <span class="token operator">=</span> <span class="token function">jsondecode</span><span class="token punctuation">(</span><span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">'%s'</span><span class="token punctuation">,</span>txt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% interpret the json file</span>
+</code></pre></div><p>And using <code>webread()</code></p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+data <span class="token operator">=</span> <span class="token function">webread</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% get data directly from url</span>
+</code></pre></div><p>Both methods result in a structure called <code>data</code> that contains all Joe Schmo's
+information. Try accessing Joe's quiz scores using
+<code>data.JoeSchmo.scores.quizzes</code> or other programming languages he knows with
+<code>data.JoeSchmo.other_languages</code>.</p></div> <p>The following examples import Joe Schmo's information, add a new field, and
+then save the MATLAB struct as a new JSON file.</p> <div class="custom-block tip"><p class="custom-block-title">Example: Export structure to JSON</p> <p>Using <code>jsondecode()</code> and<code>jsonencode()</code>:</p> <div class="language-MATLAB extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div></div><pre class="language-matlab"><code><span class="token comment">%% Read in data</span>
+URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+data <span class="token operator">=</span> <span class="token function">webread</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% get data directly from url</span>
+
+<span class="token comment">%% Manipulate struct and export to JSON</span>
+data<span class="token punctuation">.</span>JoeSchmo<span class="token punctuation">.</span>hobbies <span class="token operator">=</span> <span class="token punctuation">[</span>&quot;coding in MATLAB&quot;<span class="token punctuation">,</span> &quot;building websites&quot;<span class="token punctuation">,</span> &quot;thumb twittling&quot;<span class="token punctuation">]</span><span class="token punctuation">;</span>
+newFileName <span class="token operator">=</span> <span class="token string">'newExample.json'</span><span class="token punctuation">;</span>
+newFile <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>newFileName<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% open a file with write permission</span>
+jsonChar <span class="token operator">=</span> <span class="token function">jsonencode</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% create json char</span>
+<span class="token function">fprintf</span><span class="token punctuation">(</span>newFile<span class="token punctuation">,</span> <span class="token string">'%s'</span><span class="token punctuation">,</span> jsonChar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% write json data to file</span>
+</code></pre></div><p>Using <code>webread()</code> and<code>jsonencode()</code>:</p> <div class="language-MATLAB extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-matlab"><code><span class="token comment">%% Read in data</span>
+URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+orgFileName <span class="token operator">=</span> <span class="token string">'example.json'</span><span class="token punctuation">;</span> <span class="token comment">% original json filename</span>
+<span class="token function">websave</span><span class="token punctuation">(</span>orgFileName<span class="token punctuation">,</span> URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% save json file to disk</span>
+file <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>orgFileName<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% open json file</span>
+txt <span class="token operator">=</span> <span class="token function">fread</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% read in json file contents</span>
+data <span class="token operator">=</span> <span class="token function">jsondecode</span><span class="token punctuation">(</span><span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">'%s'</span><span class="token punctuation">,</span>txt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% interpret contents</span>
+
+<span class="token comment">%% Manipulate struct and export to JSON</span>
+data<span class="token punctuation">.</span>JoeSchmo<span class="token punctuation">.</span>hobbies <span class="token operator">=</span> <span class="token punctuation">[</span>&quot;coding in MATLAB&quot;<span class="token punctuation">,</span> &quot;building websites&quot;<span class="token punctuation">,</span> &quot;thumb twittling&quot;<span class="token punctuation">]</span><span class="token punctuation">;</span>
+newFileName <span class="token operator">=</span> <span class="token string">'newExample.json'</span><span class="token punctuation">;</span>
+newFile <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>newFileName<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% open a file with write permission</span>
+jsonChar <span class="token operator">=</span> <span class="token function">jsonencode</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% create json char</span>
+<span class="token function">fprintf</span><span class="token punctuation">(</span>newFile<span class="token punctuation">,</span> <span class="token string">'%s'</span><span class="token punctuation">,</span> jsonChar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% write json data to file</span>
+</code></pre></div><p>Both these examples result in a new JSON file called <code>newExample.json</code>. MATLAB
+will print the contents on a single line, which makes it <em><strong>very</strong></em> hard to read.
+This is what the new file would look like after modifying for greater readability:</p> <div class="language-JSON extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br></div><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;JoeSchmo&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;scores&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;exams&quot;</span><span class="token operator">:</span> <span class="token number">87</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;labs&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">85</span><span class="token punctuation">,</span>
+        <span class="token number">42</span><span class="token punctuation">,</span>
+        <span class="token number">76</span><span class="token punctuation">,</span>
+        <span class="token number">84</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;quizzes&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">68</span><span class="token punctuation">,</span>
+        <span class="token number">61</span><span class="token punctuation">,</span>
+        <span class="token number">59</span><span class="token punctuation">,</span>
+        <span class="token number">74</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;projects&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">85</span><span class="token punctuation">,</span>
+        <span class="token number">97</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;calculator&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;TI Nspire&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;birthday&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;December 31, 1999&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;prev_programming_experience&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;Some&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;other_languages&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;Python&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;C++&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;operating_system&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;Mac OS Mojave 10.14.6&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;hobbies&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;coding in MATLAB&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;building websites&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;thumb twittling&quot;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>And here is the file system-JSON-struct analogy:</p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br></div><pre class="language-text"><code>JoeSchmo
+├── birthday.txt
+├── calculator.txt
+├── hobbies.txt
+├── operating_system.txt
+├── other_languages.txt
+├── prev_programming_experience.txt
+└── scores
+    ├── exams.txt
+    ├── labs.txt
+    ├── projects.txt
+    └── quizzes.txt
+
+</code></pre></div></div> <h2 id="import-export-matlab-workspace-mat">Import/Export MATLAB Workspace (.mat)<a href="#import-export-matlab-workspace-mat" class="header-anchor"></a></h2> <p>In most cases it is best to import/export using a standard format such as
+CSV or JSON. However, if MATLAB (or Octave) is guaranteed to be the programming
+language used for some analysis/program, then utilizing workspace files
+would be suitable.</p> <p>The following example imports data from a JSON file then saves the resulting
+structure in a MATLAB workspace file.</p> <div class="custom-block tip"><p class="custom-block-title">Example: Exporting single variable to a workspace file (.mat)</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+data <span class="token operator">=</span> <span class="token function">webread</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% get data directly from url</span>
+
+fn <span class="token operator">=</span> <span class="token string">'myWorkspaceFile'</span><span class="token punctuation">;</span>
+<span class="token function">save</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">)</span>
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">Example: Exporting multiple variables to a workspace file (.mat)</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+data <span class="token operator">=</span> <span class="token function">webread</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% get data directly from url</span>
+x <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">;</span>
+y <span class="token operator">=</span> <span class="token function">linspace</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token function">length</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+z <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">;</span>
+
+fn <span class="token operator">=</span> <span class="token string">'myWorkspaceFile'</span><span class="token punctuation">;</span>
+<span class="token function">save</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token string">'y'</span><span class="token punctuation">)</span>
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">Example: Exporting all variables to a workspace file (.mat)</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code>URL <span class="token operator">=</span> <span class="token string">'https://c-a-j.github.io/ENS1300/JSONexample.json'</span><span class="token punctuation">;</span>
+data <span class="token operator">=</span> <span class="token function">webread</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">% get data directly from url</span>
+x <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">;</span>
+y <span class="token operator">=</span> <span class="token function">linspace</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token function">length</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+z <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">0.1</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">;</span>
+
+fn <span class="token operator">=</span> <span class="token string">'myWorkspaceFile'</span><span class="token punctuation">;</span>
+<span class="token function">save</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span>
+</code></pre></div></div> <p>The previous three examples all result in a new file named
+<code>myWorkspaceFile.mat</code>. Importing the saved data from another script or function
+would look like this:</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">'myWorkspaceFile'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="other-examples">Other Examples<a href="#other-examples" class="header-anchor"></a></h2> <h3 id="using-structures-as-function-input-output">Using Structures as Function Input/Output<a href="#using-structures-as-function-input-output" class="header-anchor"></a></h3> <p>One of the main decisions to make when using structures as the input/output of
+user-created functions is whether or not to retain the original values.</p> <div class="custom-block tip"><p class="custom-block-title">Example: Excluding original structure values from output</p> <div class="language-MATLAB extra-class"><pre class="language-matlab"><code><span class="token keyword">function</span> newStruct <span class="token operator">=</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">%%% Initialize</span>
+    orgStruct<span class="token punctuation">.</span>v <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+    orgStruct<span class="token punctuation">.</span>w <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">%%% Execute </span>
+    newStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>orgStruct<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> outStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>inStruct<span class="token punctuation">)</span>
+    outStruct<span class="token punctuation">.</span>x <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v<span class="token operator">.*</span>inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span>
+    outStruct<span class="token punctuation">.</span>y <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v<span class="token operator">./</span>inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span>
+    outStruct<span class="token punctuation">.</span>z <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v <span class="token operator">+</span> inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+</code></pre></div><p>When the code above is executed, only the results <code>x</code>, <code>y</code>, and <code>z</code> are contained in
+the resulting structure.</p></div> <div class="custom-block tip"><p class="custom-block-title">Example: Retaining original structure values (1)</p> <div class="language-MATLAB extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-matlab"><code><span class="token keyword">function</span> newStruct <span class="token operator">=</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">%%% Initialize</span>
+    orgStruct<span class="token punctuation">.</span>v <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+    orgStruct<span class="token punctuation">.</span>w <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">%%% Execute </span>
+    newStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>orgStruct<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> outStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>inStruct<span class="token punctuation">)</span>
+    outStruct <span class="token operator">=</span> inStruct<span class="token punctuation">;</span> <span class="token comment">% insert orginal values into the new struct</span>
+    outStruct<span class="token punctuation">.</span>x <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v<span class="token operator">.*</span>inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add x</span>
+    outStruct<span class="token punctuation">.</span>y <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v<span class="token operator">./</span>inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add y</span>
+    outStruct<span class="token punctuation">.</span>z <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v <span class="token operator">+</span> inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add z</span>
+<span class="token keyword">end</span>
+</code></pre></div><p>When the code above is executed, all values <code>v</code>, <code>w</code>, <code>x</code>, <code>y</code>, and <code>z</code> are contained in
+the resulting structure. This code is also equivalent to the following:</p> <div class="language-MATLAB extra-class"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-matlab"><code><span class="token keyword">function</span> myStruct <span class="token operator">=</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">%%% Initialize</span>
+    myStruct<span class="token punctuation">.</span>v <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+    myStruct<span class="token punctuation">.</span>w <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">%%% Execute </span>
+    myStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>myStruct<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> outStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>inStruct<span class="token punctuation">)</span>
+    outStruct <span class="token operator">=</span> inStruct<span class="token punctuation">;</span> <span class="token comment">% insert orginal values into the new struct</span>
+    outStruct<span class="token punctuation">.</span>x <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v<span class="token operator">.*</span>inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add x</span>
+    outStruct<span class="token punctuation">.</span>y <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v<span class="token operator">./</span>inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add y</span>
+    outStruct<span class="token punctuation">.</span>z <span class="token operator">=</span> inStruct<span class="token punctuation">.</span>v <span class="token operator">+</span> inStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add z</span>
+<span class="token keyword">end</span>
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">Example: Retaining original structure values (2)</p> <p>Another way to retain values of a structure is to define the output of the
+function to be the same as the input.</p> <div class="language-MATLAB extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-matlab"><code><span class="token keyword">function</span> newStruct <span class="token operator">=</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">%%% Initialize</span>
+    orgStruct<span class="token punctuation">.</span>v <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+    orgStruct<span class="token punctuation">.</span>w <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">%%% Execute </span>
+    newStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>orgStruct<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> myStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>myStruct<span class="token punctuation">)</span>
+    myStruct<span class="token punctuation">.</span>x <span class="token operator">=</span> myStruct<span class="token punctuation">.</span>v<span class="token operator">.*</span>myStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add x</span>
+    myStruct<span class="token punctuation">.</span>y <span class="token operator">=</span> myStruct<span class="token punctuation">.</span>v<span class="token operator">./</span>myStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add y</span>
+    myStruct<span class="token punctuation">.</span>z <span class="token operator">=</span> myStruct<span class="token punctuation">.</span>v <span class="token operator">+</span> myStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add z</span>
+<span class="token keyword">end</span>
+</code></pre></div><p>When the code above is executed, all values <code>v</code>, <code>w</code>, <code>x</code>, <code>y</code>, and <code>z</code> are contained in
+the resulting structure. This code is also equivalent to the following:</p> <div class="language-MATLAB extra-class"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-matlab"><code><span class="token keyword">function</span> myStruct <span class="token operator">=</span> <span class="token function">mainFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">%%% Initialize</span>
+    myStruct<span class="token punctuation">.</span>v <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+    myStruct<span class="token punctuation">.</span>w <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">%%% Execute </span>
+    myStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>myStruct<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> myStruct <span class="token operator">=</span> <span class="token function">subFunc</span><span class="token punctuation">(</span>myStruct<span class="token punctuation">)</span>
+    myStruct<span class="token punctuation">.</span>x <span class="token operator">=</span> myStruct<span class="token punctuation">.</span>v<span class="token operator">.*</span>myStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add x</span>
+    myStruct<span class="token punctuation">.</span>y <span class="token operator">=</span> myStruct<span class="token punctuation">.</span>v<span class="token operator">./</span>myStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add y</span>
+    myStruct<span class="token punctuation">.</span>z <span class="token operator">=</span> myStruct<span class="token punctuation">.</span>v <span class="token operator">+</span> myStruct<span class="token punctuation">.</span>w<span class="token punctuation">;</span> <span class="token comment">% add z</span>
+<span class="token keyword">end</span>
+</code></pre></div></div> <p>You should start to see by now that there are <em><strong>many</strong></em> different ways
+to accomplish the same thing in programming.</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/ENS1300/assets/js/app.fdcdabdd.js" defer></script><script src="/ENS1300/assets/js/2.d65932ad.js" defer></script><script src="/ENS1300/assets/js/10.95f70e5f.js" defer></script>
+  </body>
+</html>
